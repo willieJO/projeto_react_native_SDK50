@@ -11,7 +11,7 @@ export function Login() {
             <Text className="text-yellow-400 font-semibold text-sm">E-mail</Text>
             <TextInput placeholder="Digite o E-mail" placeholderTextColor="black" className="border border-yellow-200 rounded-md p-2 text-black" />
             <Text className="text-yellow-400 font-semibold text-sm">Senha</Text>
-            <TextInput placeholder="Digite sua senha" placeholderTextColor="black" className="border border-yellow-200 rounded-md p-2 text-black" />
+            <TextInput secureTextEntry={true} placeholder="Digite sua senha" placeholderTextColor="black" className="border border-yellow-200 rounded-md p-2 text-black" />
             <TouchableOpacity className="border bg-yellow-500 border-yellow-200 rounded-md p-2 mt-4">
                 <Text className="text-yellow-100 text-center">Entrar</Text>
             </TouchableOpacity>
