@@ -1,10 +1,15 @@
 import React from "react";
 import {View, Text,StatusBar,TextInput, TouchableOpacity} from 'react-native'
-import { Link } from "expo-router";
+import { Link,router } from "expo-router";
+
 
 export function Login() {
+    const entrar = () => {
+        router.navigate("/home/home")
+    }
     return (
         <View className="bg-purple-600">
+            
             <View className="flex items-center justify-center min-h-screen pt-48">
                 <View className='flex-1 bg-white px-8 pt-16 w-full' style={{borderTopLeftRadius:50,borderTopRightRadius:50}}>
                 <View className="w-full mb-72">
@@ -12,7 +17,7 @@ export function Login() {
             <TextInput placeholder="Digite o E-mail" placeholderTextColor="black" className="border border-yellow-200 rounded-md p-2 text-black" />
             <Text className="text-yellow-400 font-semibold text-sm">Senha</Text>
             <TextInput secureTextEntry={true} placeholder="Digite sua senha" placeholderTextColor="black" className="border border-yellow-200 rounded-md p-2 text-black" />
-            <TouchableOpacity className="border bg-yellow-500 border-yellow-200 rounded-md p-2 mt-4">
+            <TouchableOpacity onPress={entrar} className="border bg-yellow-500 border-yellow-200 rounded-md p-2 mt-4">
                 <Text className="text-yellow-100 text-center">Entrar</Text>
             </TouchableOpacity>
             <Link href="registro/registro">

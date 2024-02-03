@@ -1,6 +1,6 @@
 import React,{useState } from "react";
 import {View,ScrollView, Text,StatusBar,TextInput, TouchableOpacity} from 'react-native'
-import { useNavigation } from 'expo-router';
+import { useNavigation,router  } from 'expo-router';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Certifique-se de ajustar o nome do ícone conforme necessário
 import { TextInputMask } from 'react-native-masked-text';
 import { RadioButton } from 'react-native-paper';
@@ -16,6 +16,9 @@ export default function Registro() {
     const handleVoltar = () => {
         navigation.goBack();
     };
+    const registrar = () => {
+        router.navigate({href:"/login/login"})
+    }
     return (
         <ScrollView className="bg-purple-600">
             <TouchableOpacity onPress={handleVoltar} style={{ position: 'absolute', top: 10, left: 10 }}>
@@ -25,7 +28,6 @@ export default function Registro() {
                 <View className='flex-1 bg-white px-8 pt-16 w-full' style={{ borderTopLeftRadius: 50, borderTopRightRadius: 50 }}>
                     <Text className="text-yellow-400 font-semibold text-sm">Nome</Text>
                     <TextInput placeholder="Digite o seu nome" placeholderTextColor="black" className="border border-yellow-200 rounded-md p-2 text-black" />
-
                     <Text className="text-yellow-400 mt-2 font-semibold text-sm">CPF</Text>
                     <TextInputMask
                         type={'cpf'}
@@ -49,6 +51,7 @@ export default function Registro() {
                         <RadioButton.Android
                             value="sim"
                             status={valorSelecionado === 'sim' ? 'checked' : 'unchecked'}
+                            color="#FFD700"
                             onPress={() => setValorSelecionado('sim')}
                         />
                         <Text>Sim</Text>
@@ -58,6 +61,7 @@ export default function Registro() {
                         <RadioButton.Android
                             value="nao"
                             status={valorSelecionado === 'nao' ? 'checked' : 'unchecked'}
+                            color="#FFD700"
                             onPress={() => setValorSelecionado('nao')}
                         />
                         <Text>Não</Text>
@@ -81,7 +85,7 @@ export default function Registro() {
                             />
                         </View>
                     )}
-                    <TouchableOpacity className="border bg-yellow-500 border-yellow-200 rounded-md p-2 mt-4 mb-4">
+                    <TouchableOpacity onPress={registrar} className="border bg-yellow-500 border-yellow-200 rounded-md p-2 mt-4 mb-4">
                         <Text className="text-yellow-100 text-center">Registrar</Text>
                     </TouchableOpacity>
                 </View>
